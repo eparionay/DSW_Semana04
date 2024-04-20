@@ -1,0 +1,56 @@
+﻿@model IEnumerable<appWebEjemplo.Models.Alumno>
+
+@{
+    ViewData["Title"] = "busquedaPorFecha";
+}
+
+<h1>busquedaPorFecha</h1>
+
+
+<form>
+
+    <label>Ingrese el año : </label>
+    @Html.TextBox("fecha")
+    <button>Consultar</button>
+</form>
+
+
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.codigo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.nombres)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.apellidos)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.documento)
+            </th>
+          
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.codigo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.nombres)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.apellidos)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.documento)
+            </td>
+       
+        </tr>
+}
+    </tbody>
+</table>
