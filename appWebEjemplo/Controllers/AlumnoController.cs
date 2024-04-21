@@ -81,7 +81,8 @@ namespace appWebEjemplo.Controllers
                         codigo = reader.GetInt32(0),
                         nombres = reader.GetString(1),
                         apellidos = reader.GetString(2),
-                        documento= reader.GetString(3)
+                        documento= reader.GetString(3),
+                        codigoCarrera = reader.GetInt32(4)
                     };
                     lista.Add(objAlumno);
                 }
@@ -139,7 +140,7 @@ namespace appWebEjemplo.Controllers
             return lista;
         }
 
-        public IEnumerable<Alumno> listadoTotal(string indicador, int fecha)
+        public IEnumerable<Alumno> listadoTotal(string indicador, int codigo)
         {
             List<Alumno> lista = new List<Alumno>();
             SqlConnection con = new SqlConnection(cadenaConexion);
@@ -152,10 +153,11 @@ namespace appWebEjemplo.Controllers
                 cmd.CommandType = System.Data.CommandType.StoredProcedure;
                 cmd.Parameters.Clear();
                 cmd.Parameters.AddWithValue("@indicador", indicador);
-                cmd.Parameters.AddWithValue("@codigo", fecha);
+                cmd.Parameters.AddWithValue("@codigo", codigo);
                 cmd.Parameters.AddWithValue("@nombres", "");
                 cmd.Parameters.AddWithValue("@apellidos","");
                 cmd.Parameters.AddWithValue("@documento", "");
+                cmd.Parameters.AddWithValue("@carrera",0);
                 SqlDataReader reader = cmd.ExecuteReader();
                 Alumno objAlumno;
                 while (reader.Read())
@@ -165,7 +167,9 @@ namespace appWebEjemplo.Controllers
                         codigo = reader.GetInt32(0),
                         nombres = reader.GetString(1),
                         apellidos = reader.GetString(2),
-                        documento = reader.GetString(3)
+                        documento = reader.GetString(3),
+                        codigoCarrera = reader.GetInt32(4),
+                        nombreCarrera = reader.GetString(5)
                     };
                     lista.Add(objAlumno);
                 }
@@ -181,7 +185,7 @@ namespace appWebEjemplo.Controllers
             return lista;
         }
 
-        public int registrarAlumno(string indicador, Alumno alumno)
+        public int operacionAlumno(string indicador, Alumno alumno)
         {
             int procesar = 0;
             SqlConnection con = new SqlConnection(cadenaConexion);
@@ -237,7 +241,7 @@ namespace appWebEjemplo.Controllers
             Debug.WriteLine("Apellidos : " + registro.apellidos);
             Debug.WriteLine("Carrera : " + registro.codigoCarrera);
 
-            int procesar = registrarAlumno("registrar",registro);
+            int procesar = operacionAlumno("registrar",registro);
             if (procesar == 1)
             {
                 ViewBag.mensajeValidacion = "Registro Ingresado Correctamente.";
@@ -288,27 +292,53 @@ namespace appWebEjemplo.Controllers
                     y => y.codigo == id
                 ).FirstOrDefault();
 
+            ViewBag.carreras = new SelectList(listadoCarrera(),
+                "codigoCarrera", "nombreCarrera", alu.codigoCarrera);
+
+            return View(alu);
+        }
+
+        [HttpPost]
+        public IActionResult Edit(Alumno alumno)
+        {
+            int procesar = operacionAlumno("actualizar", alumno);
+            if (procesar == 1)
+            {
+                ViewBag.mensajeValidacion = "Registro Actualizado correctamente";
+            }
+            else
+            {
+                ViewBag.mensajeValidacion = "Hubo un error al actualizar";
+            }
+
+            ViewBag.carreras = new SelectList(listadoCarrera(), "codigoCarrera",
+                "nombreCarrera");
+            return View(alumno);
+        }
+
+
+        public IActionResult Details(int id)
+        {
+            Alumno alu = listadoTotal("getXId", id).First();
             return View(alu);
         }
 
 
+        public IActionResult Delete(int id)
+        {
+            Alumno alu = listadoTotal("getXId", id).First();
+            ViewBag.codigo = id;
+            return View(alu);
+        }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+        [HttpPost]
+        public IActionResult Delete(string codigo)
+        {
+            Alumno alu = new Alumno();
+            alu.codigo = Convert.ToInt32(codigo);
+            int operacion = operacionAlumno("eliminar", alu);
+            return RedirectToAction("Index");
+        }
 
         public IActionResult Home()
         {

@@ -9,6 +9,8 @@
         public string documento { get; set; }
         public int codigoCarrera { get; set; }
 
+        public string nombreCarrera { get; set; }
+
 
     }
 }

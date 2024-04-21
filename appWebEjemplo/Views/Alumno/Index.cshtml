@@ -43,9 +43,9 @@
                 @Html.DisplayFor(modelItem => item.documento)
             </td>
             <td>
-                @Html.ActionLink("Edit", "Edit", new {  id=item.codigo  }) |
-                @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
-                @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+                @Html.ActionLink("Editar", "Edit", new {  id=item.codigo  }) |
+                @Html.ActionLink("Detalle", "Details", new {  id=item.codigo  }) |
+                @Html.ActionLink("Eliminar", "Delete", new {  id=item.codigo })
             </td>
         </tr>
 }
