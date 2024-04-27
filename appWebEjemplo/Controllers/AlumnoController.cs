@@ -327,7 +327,6 @@ namespace appWebEjemplo.Controllers
         public IActionResult Delete(int id)
         {
             Alumno alu = listadoTotal("getXId", id).First();
-            ViewBag.codigo = id;
             return View(alu);
         }
 

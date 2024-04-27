@@ -1,0 +1,40 @@
+﻿
+@{
+    ViewData["Title"] = "Pruebas";
+}
+
+<h1>Pruebas</h1>
+
+
+<button type="button" id="btnProcesar">Procesar</button>
+
+<button type="button" onclick="probar()">JSON</button>
+
+
+
+<script>
+    let boton = document.getElementById("btnProcesar");
+    boton.addEventListener("click", function () {
+        let http = new XMLHttpRequest();
+        http.onload = function () {
+            console.log(this.responseText);
+        }
+        http.open("GET", "@Url.Action("Mensaje", "Home")/", true);
+        http.send();
+    });
+
+
+    function probar() {
+        let http = new XMLHttpRequest();
+        http.onload = function () {
+            console.log(this.responseText);
+        }
+        http.open("GET", "@Url.Action("Mensaje", "Home")/", true);
+        http.send();
+
+
+    }
+</script>
+
+
+

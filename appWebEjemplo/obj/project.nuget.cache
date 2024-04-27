@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "VqpOnwzZ/uYytcMn9uCDmyiO8FKzrJgI2uLzHQgEKpYluTxlXKfc9DBHtWbqD19s/wFoxoy0wu9lyYhD9xOv2w==",
+  "dgSpecHash": "lR1JAFSOHMfMzoD9DUktHa5uOnoV3MKKGweMU+zrvpFCplCetKBq3kvFLhEMGC3z6PJ7QaE6XwtXDP+3Z9noBg==",
   "success": true,
-  "projectFilePath": "C:\\Users\\epariona\\Desktop\\EXAMENES\\appWebEjemplo\\appWebEjemplo\\appWebEjemplo.csproj",
+  "projectFilePath": "C:\\Users\\epariona\\Desktop\\DSWI_Proyectos\\appWebEjemplo\\appWebEjemplo\\appWebEjemplo.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\epariona\\.nuget\\packages\\humanizer\\2.14.1\\humanizer.2.14.1.nupkg.sha512",
     "C:\\Users\\epariona\\.nuget\\packages\\humanizer.core\\2.14.1\\humanizer.core.2.14.1.nupkg.sha512",

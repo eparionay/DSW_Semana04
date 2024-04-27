@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\epariona\\Desktop\\EXAMENES\\appWebEjemplo\\appWebEjemplo\\appWebEjemplo.csproj": {}
+    "C:\\Users\\epariona\\Desktop\\DSWI_Proyectos\\appWebEjemplo\\appWebEjemplo\\appWebEjemplo.csproj": {}
   },
   "projects": {
-    "C:\\Users\\epariona\\Desktop\\EXAMENES\\appWebEjemplo\\appWebEjemplo\\appWebEjemplo.csproj": {
+    "C:\\Users\\epariona\\Desktop\\DSWI_Proyectos\\appWebEjemplo\\appWebEjemplo\\appWebEjemplo.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\epariona\\Desktop\\EXAMENES\\appWebEjemplo\\appWebEjemplo\\appWebEjemplo.csproj",
+        "projectUniqueName": "C:\\Users\\epariona\\Desktop\\DSWI_Proyectos\\appWebEjemplo\\appWebEjemplo\\appWebEjemplo.csproj",
         "projectName": "appWebEjemplo",
-        "projectPath": "C:\\Users\\epariona\\Desktop\\EXAMENES\\appWebEjemplo\\appWebEjemplo\\appWebEjemplo.csproj",
+        "projectPath": "C:\\Users\\epariona\\Desktop\\DSWI_Proyectos\\appWebEjemplo\\appWebEjemplo\\appWebEjemplo.csproj",
         "packagesPath": "C:\\Users\\epariona\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\epariona\\Desktop\\EXAMENES\\appWebEjemplo\\appWebEjemplo\\obj\\",
+        "outputPath": "C:\\Users\\epariona\\Desktop\\DSWI_Proyectos\\appWebEjemplo\\appWebEjemplo\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
